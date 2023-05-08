@@ -3,9 +3,9 @@
 import { Pool, QueryResult } from "pg";
 
 const pool = new Pool(
-  process.env.DATABASE_URL
+  process.env.POSTGRES_URL
     ? {
-        connectionString: process.env.DATABASE_URL,
+        connectionString: process.env.POSTGRES_URL.endsWith("?sslmode=require") ? process.env.POSTGRES_URL : process.env.POSTGRES_URL + "?sslmode=require",
       }
     : undefined
 );
