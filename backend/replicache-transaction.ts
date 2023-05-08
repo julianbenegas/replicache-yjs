@@ -77,7 +77,7 @@ export class ReplicacheTransaction implements WriteTransaction {
 
     const { _executor: executor, _spaceID: spaceID, _cache: cache } = this;
 
-    return makeScanResult<ScanNoIndexOptions, JSONValue>(
+    return makeScanResult<ScanNoIndexOptions>(
       options,
       (fromKey: string) => {
         const source = getEntries(executor, spaceID, fromKey);
